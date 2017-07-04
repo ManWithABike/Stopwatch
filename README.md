@@ -26,12 +26,12 @@ int main(){
 
   //Create and start a stopwatch
   sw::Stopwatch my_watch;
-   
+
   //Do something time-consuming here...
-   
+
   //Take the time
-  auto duration_ms = my_watch.elapsed()
-  std::cout << "Elapsed: " << duration << " milliseconds." << std::endl;
+  auto duration_ms = my_watch.elapsed();
+  std::cout << "Elapsed: " << duration_ms << " milliseconds." << std::endl;
 }
 ```
 
@@ -41,15 +41,16 @@ Furthermore, you can get the elapsed time formatted as seconds, milliseconds, mi
 
 ```cpp
 #include <iostream>
-#include "../include/Stopwatch.h"
+#include "Stopwatch.h"
 
 int main()
 {
    //Namespace alias
    namespace sw = stopwatch;
 
-   //Create and start a stopwatch
+   //Create a stopwatch..
    sw::Stopwatch my_watch;
+   //and (re-)start it
    my_watch.start();
 
    //Do something time-consuming here...
