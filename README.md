@@ -10,8 +10,8 @@ Download the header `Stopwatch.hpp` from the include folder of this repository, 
 ## Usage
 Suppose you have a loop, a function call or a complete program whose execution time you want to measure.  
 The `Stopwatch` class allows you to do this with two lines of code:  
-`Stopwatch my_watch` creates an instance of `Stopwatch` and starts it.   
-`uint64_t duration_ms = my_watch.elapsed()` returns the elapsed time since the instantiation.
+`Stopwatch my_watch;` creates an instance of `Stopwatch` and starts it.   
+`uint64_t duration_ms = my_watch.elapsed();` returns the elapsed time since the instantiation.
 
 Here's a minimal executable example:
 ```cpp
