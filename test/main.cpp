@@ -4,6 +4,7 @@
 // (See accompanying file LICENSE)
 
 #include <iostream>
+#include <string>
 #include "../include/Stopwatch.hpp"
 
 
@@ -17,9 +18,12 @@ int main()
    my_watch.start();
 
    //Do something time-consuming
-   for(std::size_t i = 0; i <= 500000; i++){
+   for(std::size_t i = 1; i <= 500000; i++){
       if( i%10 == 0){
          std::cout << i << std::endl;
+      }
+      if( i % 100000 == 0){
+          my_watch.lap();
       }
    }
 
@@ -33,11 +37,20 @@ int main()
    // .. in seconds
    std::uint64_t elapsed_s = my_watch.elapsed<sw::seconds>();
 
+   //Get lap times
+   auto laps = my_watch.elapsed_laps();
+
+   //Print to screen
    std::cout << "---------------" << std::endl;
    std::cout << elapsed_ns << " ns" << std::endl;
    std::cout << elapsed_mus << " mus" << std::endl;
    std::cout << elapsed_ms << " ms" << std::endl;
    std::cout << elapsed_s << " s" << std::endl;
+
+   std::cout << "---------------" << std::endl;
+   std::cout << "Laps Total: " << laps.first << std::endl;
+   auto rounds = laps.second;
+   std::cout << "Lap Times: " << sw::show_times(rounds);
 
    return 0;
 }
