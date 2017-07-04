@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include <string>
-#include "../include/Stopwatch.hpp"
+#include "../include/stopwatch/Stopwatch.hpp"
 
 
 int main()
