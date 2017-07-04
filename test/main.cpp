@@ -49,8 +49,8 @@ int main()
 
    std::cout << "---------------" << std::endl;
    std::cout << "Laps Total: " << laps.first << std::endl;
-   auto rounds = laps.second;
-   std::cout << "Lap Times: " << sw::show_times(rounds);
+   auto lap_times = laps.second;
+   std::cout << "Lap Times: " << sw::show_times(lap_times);
 
    return 0;
 }
