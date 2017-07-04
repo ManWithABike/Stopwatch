@@ -5,7 +5,6 @@
 
 #pragma once
 
-#include <cassert>
 #include <chrono>
 
 
@@ -13,10 +12,8 @@ namespace stopwatch{
 
 class Stopwatch{
 public:
-   Stopwatch( bool auto_start = false): start_time() {
-      if( auto_start ){
+   Stopwatch(): start_time() {
          start();
-      }
    }
 
    void start(){
@@ -27,12 +24,6 @@ public:
 
    template<TimeFormat fmt = TimeFormat::MILLISECONDS>
    std::uint64_t elapsed(){
-      if( start_time == std::chrono::time_point<std::chrono::high_resolution_clock>() ){
-         //start_time has not been initialized using start()
-         assert(false);
-         return 0;
-      }
-
       const auto end_time = std::chrono::high_resolution_clock::now();
       const auto duration = end_time - start_time;
       const std::uint64_t ns_count = std::chrono::duration_cast<std::chrono::nanoseconds>(duration).count();
@@ -60,9 +51,6 @@ public:
          const auto s_count = (ns_count /1000000000) + up;
          return s_count;
       }
-      default:
-         assert(false);
-         return 1;
       }
    }
 

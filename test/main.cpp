@@ -4,7 +4,7 @@
 // (See accompanying file LICENSE)
 
 #include <iostream>
-#include "../include/Stopwatch.h"
+#include "../include/Stopwatch.hpp"
 
 
 int main()
