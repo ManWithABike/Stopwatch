@@ -67,3 +67,50 @@ int main()
    return 0;
 }
 ```
+
+### Taking lap times
+Lastly, you can use a `Stopwatch` to take lap times. Of course this can be done using several stopwatches, but here's the API to do it with only one.  
+Initialize a stopwatch as before. Everytime `my_watch.lap();` is called, the watch outputs the elapsed time since the last call to `lap()`. (Or since the last call of `my_watch.start()` for the first lap.) The output can be formatted by passing a format template to the `lap()` call as in the **Goodies** example (see also code below).  
+The function `my_watch.elapsed_laps<fmt_total, fmt_laps>()` returns a pair: The first element is the total elapsed time between `my_watch.start()` and the last call of `my_watch.lap()`. The second element is a vector of lap times. The format of the times can be set using the template arguments `fmt_total` and `fmt_laps` respectively. This comes in handy if you want to ouput the total time in seconds, but the lap times in milliseconds. The default is `fmt_total = MILLISECONDS` and `fmt_lap = fmt_total`.  
+Finally, some code taking lap times of a loop:
+
+```cpp
+#include <iostream>
+#include "Stopwatch.hpp"
+
+int main()
+{
+   //Namespace alias
+   namespace sw = stopwatch;
+
+   //Create and start a stopwatch
+   sw::Stopwatch my_watch;
+
+   //Do something time-consuming:
+   for(std::size_t i = 1; i <= 500000; i++){
+      if( i%10 == 0){
+         std::cout << i << std::endl;
+      }
+      //Take lap time every 100000th iteration
+      if( i % 100000 == 0){
+        auto lap_ms = my_watch.lap<sw::milliseconds>();
+        std::cout << "Lap time in ms: " << lap_ms << std::endl;
+      }
+   }
+
+   //Get all lap times. The total in seconds, single times in milliseconds
+   auto laps = my_watch.elapsed_laps<sw::seconds, sw::milliseconds>();
+
+   //Print to console
+   std::cout << "---------------" << std::endl;
+   std::cout << "Laps Total: " << laps.first << " sec" << std::endl;
+   auto lap_times = laps.second;
+   std::cout << "Lap Times [ms]: " << sw::show_times(lap_times);
+
+   return 0;
+}
+```
+
+
+## License
+Distributed under the MIT Software License (X11 license). (See accompanying file LICENSE.)
