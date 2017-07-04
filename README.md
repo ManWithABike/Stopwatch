@@ -5,7 +5,7 @@ C++ implementation of a `Stopwatch` class
 This repository is home to a tiny C++ implementation of a stopwatch. It aims at providing an easy-to-use stopwatch. Basically, it's just an API to `std::chrono::high_precision_clock`. But googling for "*std chrono duration_cast*", "*std chrono time_point template*" for the 271st time -rough estimation-, finally convinved me that I need to write this code snippet. Here I'm sharing the result.
 
 ## Installation
-Download the header, include it, and you're ready to go. No dependencies no nothing.
+Download the header `Stopwatch.hpp` from the include folder of this repository, include it, and you're ready to go. No dependencies no nothing.
 
 ## Usage
 Suppose you have a loop, a function call or a complete program whose execution time you want to measure.  
