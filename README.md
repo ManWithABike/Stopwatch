@@ -8,6 +8,7 @@ This repository is home to a tiny C++ implementation of a stopwatch. It aims at 
 Download the header `Stopwatch.hpp` from the include folder of this repository, include it, and you're ready to go. No dependencies no nothing.
 
 ## Usage
+*Info:* In */test/main.cpp* you'll find a program that combines the following three examples into one `main()` function. It should be executable as soon as you adapt the include path to "Stopwatch.hpp".
 
 ### Basics
 Suppose you have a loop, a function call or a complete program whose execution time you want to measure.  
