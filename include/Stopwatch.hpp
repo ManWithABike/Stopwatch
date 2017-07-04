@@ -12,9 +12,7 @@ namespace stopwatch{
 
 class Stopwatch{
 public:
-   Stopwatch(): start_time() {
-         start();
-   }
+   Stopwatch(): start_time( std::chrono::high_resolution_clock::now() ) {}
 
    void start(){
       start_time = std::chrono::high_resolution_clock::now();
