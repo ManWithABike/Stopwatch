@@ -106,7 +106,7 @@ std::string show_times( const std::vector<std::uint64_t>& times ){
     for( const auto& t : times ){
         result += std::to_string(t) + ",";
     }
-    result.back() = '}';
+    result.back() = static_cast<char>('}');
     return result;
 }
 
