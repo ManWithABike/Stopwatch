@@ -14,7 +14,7 @@ Download the header `Stopwatch.hpp` from the include folder of this repository, 
 Suppose you have a loop, a function call or a complete program whose execution time you want to measure.  
 The `Stopwatch` class allows you to do this with two lines of code:  
 `Stopwatch my_watch;` creates an instance of `Stopwatch` and starts it.   
-`uint64_t duration_ms = my_watch.elapsed();` returns the elapsed time since the instantiationin milliseconds.
+`uint64_t duration_ms = my_watch.elapsed();` returns the elapsed time since the instantiation in milliseconds.
 
 Here's a minimal executable example:
 ```cpp
@@ -72,7 +72,7 @@ int main()
 
 ### Taking lap times
 Lastly, you can use a `Stopwatch` to take lap times. Of course this can be done using several stopwatches, but here's the API to do it with only one.  
-Initialize a stopwatch as before. Everytime `my_watch.lap();` is called, the watch outputs the elapsed time since the last call to `lap()`. (Or since the last call of `my_watch.start()` for the first lap.) The output can be formatted by passing a format template to the `lap()` call as in the **Goodies** example (see also code below).  
+Initialize a stopwatch as before. Every time `my_watch.lap();` is called, the watch outputs the elapsed time since the last call to `lap()`. (Or since the last call of `my_watch.start()` for the first lap.) The output can be formatted by passing a format template to the `lap()` call as in the **Goodies** example (see also code below).  
 The function `my_watch.elapsed_laps<fmt_total, fmt_laps>()` returns a pair: The first element is the total elapsed time between `my_watch.start()` and the last call of `my_watch.lap()`. The second element is a vector of lap times. The format of the times can be set using the template arguments `fmt_total` and `fmt_laps` respectively. This comes in handy if you want to ouput the total time in seconds, but the lap times in milliseconds. The default is `fmt_total = MILLISECONDS` and `fmt_lap = fmt_total`.  
 Finally, some code taking lap times of a loop:
 
