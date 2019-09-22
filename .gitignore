@@ -33,3 +33,5 @@
 
 # VSCode
 .vscode*
+*.ipch
+*.tlog
