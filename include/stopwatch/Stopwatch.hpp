@@ -6,10 +6,14 @@
 #pragma once
 
 #include <vector>
+#include <string>
 #include <chrono>
 
 
+
+
 namespace stopwatch{
+
 
 class Stopwatch{
 public:
@@ -51,6 +55,7 @@ public:
 
       return { ticks<fmt_total>(start_time, laps.back()), lap_times };
    }
+
 
 private:
    typedef std::chrono::time_point<std::chrono::high_resolution_clock> time_pt;
@@ -110,4 +115,5 @@ std::string show_times( const std::vector<std::uint64_t>& times ){
     return result;
 }
 
-} //namespace stopwatch
+
+}

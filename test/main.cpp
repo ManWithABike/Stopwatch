@@ -4,7 +4,6 @@
 // (See accompanying file LICENSE)
 
 #include <iostream>
-#include <string>
 #include "../include/stopwatch/Stopwatch.hpp"
 
 

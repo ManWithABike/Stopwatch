@@ -33,3 +33,10 @@
 
 # VSCode
 .vscode*
+*.ipch
+*.tlog
+
+#VisualStudio
+.vs*
+test/x64*
+test/Test.vcx*
