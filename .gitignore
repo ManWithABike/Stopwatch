@@ -40,3 +40,4 @@
 .vs*
 test/x64*
 test/Test.vcx*
+test/*.sln
